@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "7wBSSee8CXQ=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Enes\\Desktop\\BPM\\BPM-backend\\BPM.API\\BPM.API.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Enes\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.5\\microsoft.aspnetcore.openapi.9.0.5.nupkg.sha512",
+    "C:\\Users\\Enes\\.nuget\\packages\\microsoft.openapi\\1.6.17\\microsoft.openapi.1.6.17.nupkg.sha512"
+  ],
+  "logs": []
+}
