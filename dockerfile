@@ -1,27 +1,23 @@
-# Use the official .NET 8 SDK image for build
+# Stage 1: Build
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /app
 
-# Copy and restore dependencies
-COPY ./BPM.API/*.csproj ./BPM.API/
-RUN dotnet restore ./BPM.API/BPM.API.csproj
+# Copy only the project file and restore
+COPY BPM.API/BPM.API.csproj BPM.API/
+RUN dotnet restore BPM.API/BPM.API.csproj
 
-# Copy the entire source
-COPY ./BPM.API ./BPM.API
-
-# Build the application
+# Copy everything else and build
+COPY BPM.API/ BPM.API/
 WORKDIR /app/BPM.API
-RUN dotnet publish -c Release -o out
+RUN dotnet publish -c Release -o /out
 
-# Runtime image
+# Stage 2: Runtime
 FROM mcr.microsoft.com/dotnet/aspnet:8.0
 WORKDIR /app
-COPY --from=build /app/BPM.API/out .
+COPY --from=build /out .
 
-# Bind to port (Render provides PORT env variable)
+# Set ASP.NET to listen on the port Render gives
 ENV ASPNETCORE_URLS=http://+:$PORT
-
-# Expose the port (Render will set the actual port)
 EXPOSE 8080
 
 ENTRYPOINT ["dotnet", "BPM.API.dll"]
