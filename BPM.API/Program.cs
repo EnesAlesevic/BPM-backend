@@ -1,15 +1,16 @@
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
-builder.Services.AddOpenApi();
+// Add services to the container
+builder.Services.AddEndpointsApiExplorer(); // Required for minimal APIs
+builder.Services.AddSwaggerGen();           // Required for Swagger
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Use Swagger in development
 if (app.Environment.IsDevelopment())
 {
-    app.MapOpenApi();
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
 
-app.UseHttpsRedirection();
+app.MapControllers(); // If using controllers
