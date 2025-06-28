@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("BPM.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+81e6753b293160bedb1f30ef0bf0e4cc15791d4a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9ac67930ce2bc85d625b22951a77df6f9341e19e")]
 [assembly: System.Reflection.AssemblyProductAttribute("BPM.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("BPM.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
